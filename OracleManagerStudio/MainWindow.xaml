@@ -1,0 +1,41 @@
+﻿<Window x:Class="OracleManagerStudio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OracleManagerStudio"
+        mc:Ignorable="d"
+        Title="Oracle 9i Manager Studio(系統管理員)" Height="450" Width="800" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        <ToolBar Grid.Row="0">
+            <Button x:Name="btConnect" Content="連接" Padding="10,5,10,5" Click="BtConnect_Click"/>
+            <Button x:Name="btDisconnect" Content="取消連接" Padding="10,5,10,5" Click="BtDisconnect_Click"/>
+            <Button x:Name="btExecute" Content="執行" Padding="10,5,10,5" Click="BtExecute_Click"/>
+        </ToolBar>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView x:Name="tree" Grid.Row="0">
+                <TreeViewItem />
+            </TreeView>
+            <GridSplitter Grid.Row="1" Background="DarkGray" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="3"/>
+            <Grid Grid.Column="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tbSQL" Grid.Row="0" KeyDown="TbSQL_KeyDown"/>
+                <!--<TextBox x:Name="tbResult" Grid.Row="1" IsReadOnly="True"/>-->
+                <DataGrid x:Name="dgResult" Grid.Row="1"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
