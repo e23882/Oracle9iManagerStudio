@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OracleManagerStudio"
         mc:Ignorable="d"
-        Title="連接到伺服器" Height="387" Width="425" WindowStyle="ToolWindow" Closed="Window_Closed">
+        Title="連接到伺服器" Height="387" Width="425" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -54,14 +54,16 @@
             <TextBlock Text="驗證(A):" Grid.Row="3" Grid.Column="0" Margin="15,10,0,0"/>
             <TextBlock Text="登入(L):" Grid.Row="4" Grid.Column="0" Margin="30,10,0,0"/>
             <TextBlock Text="密碼(P):" Grid.Row="5" Grid.Column="0" Margin="30,10,0,0"/>
-
-            <TextBox x:Name="tbDBName" Grid.Row="1" Text="" Grid.Column="1" Margin="50,-4,0,0" Height="20"/>
-            <TextBox x:Name="tbDBIP" Text="" Grid.Row="2" Grid.Column="1" Margin="50,6,0,0" Height="20"/>
+            <DockPanel Grid.Row="1" Grid.Column="1" Margin="50,-4,0,0" Height="20">
+                <TextBox x:Name="tbDBName" Text="default" DockPanel.Dock="Left" Width="230"/>
+                <Button Content="+" DockPanel.Dock="Left" Width="20" VerticalAlignment="Top" Click="Button_Click"/>
+            </DockPanel>
+            <TextBox x:Name="tbDBIP" Text="192.168.1.12" Grid.Row="2" Grid.Column="1" Margin="50,6,0,0" Height="20"/>
             <ComboBox Grid.Row="3" Grid.Column="1" IsEnabled="False" SelectedIndex="0" Margin="50,10,0,0" Height="20">
                 <ComboBoxItem VerticalContentAlignment="Center">Oracle 9i 驗證</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="tbID" Text="" Grid.Row="4" Grid.Column="1" Height="20" Margin="65,17,0,0" VerticalContentAlignment="Center"/>
-            <TextBox x:Name="tbPW" Text="" Grid.Row="5" Grid.Column="1" Height="20" Margin="65,17,0,0" VerticalContentAlignment="Center" />
+            <TextBox x:Name="tbID" Text="userName" Grid.Row="4" Grid.Column="1" Height="20" Margin="65,17,0,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="tbPW" Text="password" Grid.Row="5" Grid.Column="1" Height="20" Margin="65,17,0,0" VerticalContentAlignment="Center" />
             <CheckBox Grid.Row="6" Grid.Column="1" Margin="65,10,0,0">記住密碼</CheckBox>
             <Line X1="10" X2="500" Y1="10" Y2="10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Stroke="Black" StrokeThickness="1" Margin="0,12"/>
             <Line X1="10" X2="500" Y1="11" Y2="11" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Stroke="#FFFAFA" StrokeThickness="1" Margin="0,12"/>
@@ -72,6 +74,6 @@
                 <Button Content="選項(O)>>" Width="90" Margin="2,0,2,0" Padding="5,3"/>
             </StackPanel>
         </Grid>
-        
+
     </Grid>
 </Window>

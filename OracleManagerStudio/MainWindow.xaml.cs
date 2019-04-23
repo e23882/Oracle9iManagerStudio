@@ -118,10 +118,26 @@ namespace OracleManagerStudio
 
         public void ExecSQLQuery()
         {
-            var dt = (dbInfo)currentTreeNodeParent.Tag;
-            OraConnection ofd = new OraConnection(dt.IP, dt.dbName, dt.ID, dt.PW);
-            var dtofd = ofd.ExecQuery(tbSQL.Text);
-            dgResult.ItemsSource = dtofd.AsDataView();
+            if (currentTreeNodeParent is null)
+                return;
+            try
+            {
+                var dt = (dbInfo)currentTreeNodeParent.Tag;
+                OraConnection ofd = new OraConnection(dt.IP, dt.dbName, dt.ID, dt.PW);
+                var dtofd = ofd.ExecQuery(tbSQL.Text);
+                dgResult.ItemsSource = dtofd.AsDataView();
+            }
+            catch (Exception ie)
+            {
+                dgResult.ItemsSource = null;
+                MessageBox.Show(ie.Message);
+            }
+            
+        }
+
+        private void BtSearch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

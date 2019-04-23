@@ -15,6 +15,7 @@
         <ToolBar Grid.Row="0">
             <Button x:Name="btConnect" Content="連接" Padding="10,5,10,5" Click="BtConnect_Click"/>
             <Button x:Name="btDisconnect" Content="取消連接" Padding="10,5,10,5" Click="BtDisconnect_Click"/>
+            <Button x:Name="btSearch" Content="新增查詢" Padding="10,5,10,5" Click="BtSearch_Click"/>
             <Button x:Name="btExecute" Content="執行" Padding="10,5,10,5" Click="BtExecute_Click"/>
         </ToolBar>
         <Grid Grid.Row="1">
